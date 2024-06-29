@@ -2,11 +2,11 @@
 // Program execution begins and ends here
 // 
 // - Gabriel Webbe
-// - 06/09/2024
+// - 06/29/2024
 //
 //  **Right now, the functionality of choosing the right country and region/state
-//     are done as if-else statements in the main. I want to move those to another class or method
-//      for legibility.
+//     are done as if-else statements in the main method. I want to move those to another class or method
+//      for legibility and modifiability.
 //
 
 #include <iostream>
@@ -97,15 +97,14 @@ int main()
         }
         else
         {
+            //if user types a state without functionality
             cout << "Oh no! We don't have support for there yet!\n";
         }
-
-
 
     }
     else
     {
-        //if they don't choose USA, wthere's no support yet.
+        //if user doesn't choose USA, wthere's no support yet.
         cout << "Oh no! We don't have support for there yet!\n";
     }
 
