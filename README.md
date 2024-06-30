@@ -4,4 +4,4 @@
  Visual Studio IDE  (https://visualstudio.microsoft.com/)
  C++ Language
 
- This is a personal project built primarily to showcase coding and HitHub proficiency.
+ This is a personal project built primarily to showcase coding and GitHub proficiency.
