@@ -4,7 +4,7 @@
 // - Gabriel Webbe
 // - 06/29/2024
 // 
-// -Latest Update: 06/30/24
+// -Latest Update: 07/01/24
 //
 //  **Right now, the functionality of choosing the right country and region/state
 //     are done as if-else statements in the main method. I want to move those to another class or method
@@ -124,7 +124,7 @@ if (country == "USA" || country == "America")
 }
 else
 {
-    //if user doesn't choose USA, wthere's no support yet.
+    //if user doesn't choose USA, say there's no support yet.
     cout << "Oh no! We don't have support for there yet!\n";
 }
 }
