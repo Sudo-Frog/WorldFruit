@@ -1,22 +1,23 @@
 // WorldFruit.cpp : This file contains the 'main' function.
-// Program execution begins and ends here
+// The main() queries the user for a specific country, then calls the findFruit()
+//  method to find the right output based on the correct location.
+//  
 // 
 // - Gabriel Webbe
 // - 06/29/2024
 // 
-// -Latest Update: 07/01/24
-//
-//  **Right now, the functionality of choosing the right country and region/state
-//     are done as if-else statements in the main method. I want to move those to another class or method
-//      for legibility and modifiability.
+// -Latest Update: 07/04/24
 //
 
 #include <iostream>
 #include <string>
+#include <map>
+#include <algorithm>
+
 using namespace std;
 
 //method declaration so my main() can stay at the top
-void findFruit(string);
+string findFruit(string);
 
 
 int main()
@@ -27,106 +28,60 @@ int main()
     //ask the user for a country name and store in a String
     cout << "Hello! Choose a country:\n";
     cin >> country;
+    //convert user input to all upper case to negate case sensitivity
+     //transform is included with <algorithm>
+    transform(country.begin(), country.end(), country.begin(),::toupper);
 
     //the functionality for finding a fruit lives in this method
-     //somewhere along the line, I could split the logic by having methods for specific regions
-    findFruit(country);
-
+     //somewhere along the line, I could split the logic by having methods for specific regions, but i'm sure that'd
+      //end up cantankerous to later modification
+    cout << findFruit(country);
 }
 
 
 //This method contains the functionality to answer the user when given a specific state in the United States
-void findFruit(string country)
-{
-
-    //as long as the country is the USA
-if (country == "USA" || country == "America")
+string findFruit(string country)
 {
     string state;
 
-    //now, time to ask for a specific state in the USA
-    cout << "United States! Choose a State!\n";
-    cin >> state;
+    if (country == "USA" || country == "AMERICA")
+    {
+        //now, time to ask for a specific state in the USA
+        cout << "United States! Choose a State!\n";
+        cin >> state;
+        //convert user input wto all upper case to negate case sensitivity
+        transform(state.begin(), state.end(), state.begin(), ::toupper);
 
-    //here, we can do functionality based on the given input, using if-else-if statements.
-     //Eventually, should move this to another class or method to make it prettier
-    if(state == "Pennsylvania")
-    {
-        cout << "Pawpaw, American Persimmon, Wild Plum, and Red Mulberry.\n";
-    }
-    else if (state == "New York")
-    {
-        cout << "Apples, Bramble Fruits, and Strawberries.\n";
-    }
-    else if (state == "Connecticut")
-    {
-        cout << "Apples, Peaches, and Pears.\n";
-    }
-    else if (state == "Vermont")
-    {
-        cout << "Apples, Kiwis, Aronia, and Haskap.\n";
-    }
-    else if (state == "New Hampshire")
-    {
-        cout << "Apples, Blueberries, Apricot, and Pears.\n";
-    }
-    else if (state == "Massachusetts")
-    {
-        cout << "Cranberries, Blueberries, and Grapes.\n";
-    }
-    else if (state == "Rhode Island")
-    {
-        cout << "Greening Apples.\n";
-    }
-    else if (state == "Maine")
-    {
-        cout << "Blueberries, Plums, and Chokeberries.\n";
-    }
-    else if (state == "Maryland")
-    {
-        cout << "Apples, Cherries, and Grapes.\n";
-    }
-    else if (state == "Delaware")
-    {
-        cout << "Strawberries and Peaches.\n";
-    }
-    else if (state == "New Jersey")
-    {
-        cout << "Tomatoes, Cucumbers, and Olives.\n";
-    }
-    else if (state == "Virginia")
-    {
-        cout << "Tomatoes, Grapes, Cucumbers, and Apples.\n";
-    }
-    else if (state == "North Carolina")
-    {
-        cout << "Apples, Peaches, and Pecans.\n";
-    }
-    else if (state == "South Carolina")
-    {
-        cout << "Apples, Peaches, Plums.\n";
-    }
-    else if (state == "Georgia")
-    {
-        cout << "Apples, Watermelon, Pecans, and Peaches.\n";
-    }
-    else if (state == "Florida")
-    {
-        cout << "Avocado, Mango, Fig, and Citrus.\n";
+        //Using a lookup table, a map, to store the values that correspong to specific locations
+         //much smaller and easier to read than nested if-else statements
+        map<string, string> fruits = {
+            {"PENNSYLVANIA", "Pawpaw, American Persimmon, Wild Plum, and Red Mulberry."},
+            {"NEW YORK", "Apples, Raspberries, Blackberries, and Strawberries."},
+            {"CONNECTICUT", "Apples, Peaches, and Pears."},
+            {"VERMONT", "Apples, Blueberries, Apricot, and Pears."},
+            {"NEW HAMPSHIRE", "Apples, Blueberries, Apricot, and Pears."},
+            {"MASSACHUSETTS", "Cranberries, Blueberries, and Grapes."},
+            {"RHODE ISLAND", "Greening Apples."},
+            {"MAINE", "Blueberries, Plums, and Chokeberries."},
+            {"MARYLAND", "Apples, Cherries, and Grapes."},
+            {"DELAWARE", "Strawberries and Peaches."},
+            {"NEW JERSEY", "Tomatoes, Cucumbers, and Olives."},
+            {"VIRGINIA", "Tomatoes, Grapes, Cucumbers, and Apples."},
+            {"NORTH CAROLINA", "Apples, Peaches, and Pecans."},
+            {"SOUTH CAROLINA", "Apples, Peaches, Plums."},
+            {"GEORGIA", "Apples, Watermelon, Pecans, and Peaches."},
+            {"FLORIDA", "Avocado, Mango, Fig, and Citrus."},
+            //the other states will be appended here
+        };
+
+        //this is less user-friendly through the terminal, because if the input given is not
+         //available, this returns 0 and exits
+        return fruits[state];
     }
     else
     {
-        //if user types a state without functionality
-        cout << "Oh no! We don't have support for there yet!\n";
+        return "Oh no! We don't have support for there yet.\n";
     }
-
-
-}
-else
-{
-    //if user doesn't choose USA, say there's no support yet.
-    cout << "Oh no! We don't have support for there yet!\n";
-}
 }
 
 
