@@ -1,14 +1,12 @@
 // WorldFruit.cpp : This file contains the 'main' function.
-// Program execution begins and ends here
+// The main() queries the user for a specific country, then calls the findFruit()
+//  method to find the right output based on the correct location.
+//  
 // 
 // - Gabriel Webbe
 // - 06/29/2024
 // 
 // -Latest Update: 07/04/24
-//
-//  **Right now, the functionality of choosing the right country and region/state
-//     are done as if-else statements in the main method. I want to move those to another class or method
-//      for legibility and modifiability.
 //
 
 #include <iostream>
