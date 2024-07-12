@@ -55,6 +55,7 @@ string findFruit(string country)
         //Using a lookup table, a map, to store the values that correspong to specific locations
          //much smaller and easier to read than nested if-else statements
         map<string, string> fruits = {
+            //maybe I should put these in alphabetical order...
             {"PENNSYLVANIA", "Pawpaw, American Persimmon, Wild Plum, and Red Mulberry."},
             {"NEW YORK", "Apples, Raspberries, Blackberries, and Strawberries."},
             {"CONNECTICUT", "Apples, Peaches, and Pears."},
@@ -71,7 +72,40 @@ string findFruit(string country)
             {"SOUTH CAROLINA", "Apples, Peaches, Plums."},
             {"GEORGIA", "Apples, Watermelon, Pecans, and Peaches."},
             {"FLORIDA", "Avocado, Mango, Fig, and Citrus."},
-            //the other states will be appended here
+            {"ALABAMA","Pecans, Blackberries, Peaches, and Muscadines."},
+            {"OHIO","Pawpaw, Elderberries, Perimmons, and Black Raspberries."},
+            {"KENTUCKY","Blueberries, Strawberries, Pawpaw, and Kiwi."},
+            {"WEST VIRGINIA","Golden Apples, Peaches, Blueberries, and Watermelon."},
+            {"TENNESSEE","Tomatoes, Bell Peppers, Cantaloupe, and Cherries."},
+            {"INDIANA","Pears, Plums, Apples, and Black Cherries."},
+            {"MICHIGAN","Cherries, Beans, Cucumber, and Peaches."},
+            {"ILLINOIS","Goldrush Apple, Strawberries, Plums, and Nuts."},
+            {"WISCONSIN","Cranberries, Cherries, Bush Fruits, and Bitter Melon."},
+            {"MINNESOTA","Honeycrisp Apples, Blueberries, Watermelons, and Grapes."},
+            {"IOWA","Hawkeye Apples, Pawpaw, Cherries, and Corn."},
+            {"MISSOURI","Gooseberries, Currants, Apricots, and Nectarines."},
+            {"ARKANSAS","Watermelon, Pears, Figs, and Black Apples."},
+            {"MISSISSIPPI","Oranges, Figs, Gala Apples, and Plums."},
+            {"LOUISIANA","Strawberries, Persimmons, Blackberries, and Tomatoes."},
+            {"TEXAS","Grapefruit, Peppers, Cucumbers, and Mayhaw."},
+            {"OKLAHOMA","Apples, Peaches, Peaches, and Elderberries."},
+            {"KANSAS","Plums, Persimmons, Grapes, and Mulberries."},
+            {"NEBRASKA","Pears, Plums, Grapes, and Cherries."},
+            {"SOUTH DAKOTA","Cherries, Apples, Plums, Cantaloupes."},
+            {"NORTH DAKOTA","Apricots, Pears, Currants, and Apples."},
+            {"NEW MEXICO","Blackberries, Cherries, Peaches, and Apricots."},
+            {"COLORADO","Plums, Strawberries, Cherries, and Apricots."},
+            {"WYOMING","Chokecherries, Plums, Peaches, and Grapes."},
+            {"MONTANA","Apricots, Plums, Pears, and Plums."},
+            {"IDAHO","Pears, Huckleberries, Nectarines, and Grapes."},
+            {"UTAH","Plums, Pears, Peaches, and Apricots."},
+            {"ARIZONA","Melons, Lemons, Oranges, and Tomatoes."},
+            {"CALIFORNIA","Grapes, Berries, Avocado, and Figs."},
+            {"OREGON","Blueberries, Grapes, Pears, and Cherries."},
+            {"WASHINGTON","Grapes, Apricots, Marionberries, and Blackberries."},
+            {"NEVADA","Apricots, Plums, Pears, and Apples."},
+            {"HAWAII","Mango, Coconuts, Rambutans, Lychee, and Guava."},
+            {"ALASKA","Salmonberry, Currants, Lingonberries, and Strawberries."},
         };
 
         //this is less user-friendly through the terminal, because if the input given is not
