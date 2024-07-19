@@ -44,6 +44,7 @@ string findFruit(string country)
 {
     string state;
 
+    //if statement to ensure the given country is one supported
     if (country == "USA" || country == "AMERICA")
     {
         //now, time to ask for a specific state in the USA
@@ -108,14 +109,19 @@ string findFruit(string country)
             {"ALASKA","Salmonberry, Currants, Lingonberries, and Strawberries."},
         };
 
-        //this is less user-friendly through the terminal, because if the input given is not
-         //available, this returns 0 and exits
-        return fruits[state];
+        //first, let's check if the state given is actually in the fruits<> map
+         //if it is, return the mapped value for the appropriate key
+          //otherwise, output that there is not support for that region yet.
+        if (fruits.count(state) == 1) {
+            return fruits[state];
+        }
+        else
+        {
+            return "Oh no! We don't have support for there yet.\n";
+        }
     }
     else
     {
         return "Oh no! We don't have support for there yet.\n";
     }
 }
-
-
