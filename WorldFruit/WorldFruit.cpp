@@ -27,10 +27,14 @@ int main()
 
     //ask the user for a country name and store in a String
     cout << "Hello! Choose a country:\n";
-    cin >> country;
+    getline(cin, country);
     //convert user input to all upper case to negate case sensitivity
      //transform is included with <algorithm>
     transform(country.begin(), country.end(), country.begin(),::toupper);
+    //for (int i = 0; i < country.size(); i++)
+    //{
+    //    country.at(i) = toupper(country.at(i));
+    //}
 
     //the functionality for finding a fruit lives in this method
      //somewhere along the line, I could split the logic by having methods for specific regions, but i'm sure that'd
@@ -49,7 +53,7 @@ string findFruit(string country)
     {
         //now, time to ask for a specific state in the USA
         cout << "United States! Choose a State!\n";
-        cin >> state;
+        getline(cin, state);
         //convert user input wto all upper case to negate case sensitivity
         transform(state.begin(), state.end(), state.begin(), ::toupper);
 
@@ -120,8 +124,38 @@ string findFruit(string country)
             return "Oh no! We don't have support for there yet.\n";
         }
     }
+    else if (country == "SOUTH AMERICA") //if not the USA - then see if South America
+    {
+        cout << "South America! Choose a Country!\n";
+        getline(cin, state);
+        //convert user input wto all upper case to negate case sensitivity
+        transform(state.begin(), state.end(), state.begin(), ::toupper);
+
+        map<string, string> fruits = {
+            {"COLOMBIA", "Granadilla, Pitaya, Zapote, and Lulo."},
+            {"VENEZUELA", "Passion Fruit, Mango, Guava, and and Bananas."},
+            {"BRAZIL", "Açaí, Guarana, Jabuticaba, and Papaya."},
+            {"ECUADOR", "Soursop, Plantain, Pepino, and Naranjilla."},
+            {"PERU", "Camu Camu, Chirimoya, Passionfruit, and Cocona."},
+            {"BOLIVIA", "Coconut, Banana, Kiwi, and Pineapples."},
+            {"CHILE", "Grapes, Papaya, Apples, and Lucama."},
+            {"GUYANA", "Pitanga, Spice Mango, Golden Apple, and Passion Fruit."},
+            {"SURINAME", "Milk Fruit, Surinam Cherry, Coconut, and Cherries."},
+            {"FRENCH GUIANA", "Lemon, Orange, Chilli Peppers, and Apricots."},
+            {"ARGENTINA", "Tangerines, Plums, Oranges, and Apples."},
+            {"URUGUAY", "Guabiyu, Oranges, Blueberries, and Apples."},
+        };
+
+        if (fruits.count(state) == 1) {
+            return fruits[state];
+        }
+        else
+        {
+            return "Oh no! We don't have support for there yet.\n";
+        }
+    }
     else
     {
-        return "Oh no! We don't have support for there yet.\n";
+        return "Oh no! We don't have support for that country, yet!\n";
     }
 }
