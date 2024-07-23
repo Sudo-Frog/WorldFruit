@@ -42,21 +42,35 @@ int main()
 //This method contains the functionality to answer the user when given a specific state in the United States
 string findFruit(string country)
 {
-    string state;
+    string region;
 
     //if statement to ensure the given country is one supported
-    if (country == "USA" || country == "AMERICA")
+    if (country == "NORTH AMERICA")
     {
-        //now, time to ask for a specific state in the USA
-        cout << "United States! Choose a State!\n";
-        getline(cin, state);
-        //convert user input wto all upper case to negate case sensitivity
-        transform(state.begin(), state.end(), state.begin(), ::toupper);
+         //now, time to ask for a specific state in the USA
+        cout << "North America! Choose a State, Province, Territory, or Country!\n";
+        getline(cin, region);
+         //convert user input wto all upper case to negate case sensitivity
+        transform(region.begin(), region.end(), region.begin(), ::toupper);
 
         //Using a lookup table, a map, to store the values that correspong to specific locations
          //much smaller and easier to read than nested if-else statements
         map<string, string> fruits = {
-            //maybe I should put these in alphabetical order...
+             //Canadian Provinces/Territories
+            {"ALBERTA","Gooseberries, Blueberries, Saskatoons, and Apricots."},
+            {"BRITISH COLOMBIA","Apples, Plums, Peaches, and Grapes."},
+            {"MANITOBA","Apples, Plums, Nectarines, Pears."},
+            {"NEW BRUNSWICK","Strawberries, Currants, Blackberries, and Bearberries."},
+            {"NEWFOUNDLAND AND LABRADOR","Raspberries, Strawberries, Lingonberries, and Cloudberries"},
+            {"NOVA SCOTIA","Grapes, Strawberries, Plums, and Cranberries."},
+            {"ONTARIO","Pears, Serviceberries, Grapes, and Apples."},
+            {"PRINCE EDWARD ISLAND","Cranberries, Currants, Blueberries, and Haskap Berries"},
+            {"QUEBEC","Gooseberries, Currants, Apples, and Strawberries."},
+            {"SASKATCHEWAN","Saskatoons, Cranberries, Plums, and Buckthorn Berries."},
+            {"NORTHWEST TERRITORIES","Currants, Bearberries, Cloudberries, and Currants."},
+            {"NUNAVUT","Raspberries, Blackberries, Currants, and Cloudberries."},
+            {"YUKON","Raspberries, Strawberries, Salmonberries, and Strawberries."},
+             //United States of American States
             {"PENNSYLVANIA", "Pawpaw, American Persimmon, Wild Plum, and Red Mulberry."},
             {"NEW YORK", "Apples, Raspberries, Blackberries, and Strawberries."},
             {"CONNECTICUT", "Apples, Peaches, and Pears."},
@@ -107,13 +121,36 @@ string findFruit(string country)
             {"NEVADA","Apricots, Plums, Pears, and Apples."},
             {"HAWAII","Mango, Coconuts, Rambutans, Lychee, and Guava."},
             {"ALASKA","Salmonberry, Currants, Lingonberries, and Strawberries."},
+             //Central American countries
+            {"MEXICO","Mango, Peppers, Papaya, and Avocado."},
+            {"PANAMA","Mango, Jackfruit, Avocado, and Papaya."},
+            {"NICARAGUA","Bananas, Lemon, Pineapple, and Mango."},
+            {"HONDURAS","Plantain, Orange, Passion Fruit, and Chili Peppers."},
+            {"GUATEMALA","Jocote, Mango, Star Fruit, Papaya."},
+            {"EL SALVADOR","Loquat, Tamarind, Guava, and Mango."},
+            {"COSTA RICA","Passion Fruit, Soursop, Papaya, and Dragon Fruit."},
+            {"BELIZE","Soursop, Breadfruit, Dragon Fruit, and Papaya."},
+             //Carribean Islands, although, just the recognized Countries (there are hundreds of islands)
+            {"ANTIGUA AND BARBUDA","Coconut, Bananas, Cucumbers, and Pineapple."},
+            {"DOMINICA","Guava, Pineapples, Breaduit, and Passion Fruit."},
+            {"THE BAHAMAS","Soursop, Papaya, Limes, and Seagrapes."},
+            {"BARBADOS","Passionfruit, Breadfruit, Goosebrrries, and Guava."},
+            {"CUBA","Mango, Guava, Bananas, and Avocado."},
+            {"DOMINICAN REPUBLIC","Soursop, Sapote, Avocado, and Pineapple."},
+            {"GRENADA","Plantains, Mango, Passionfruit, and breadfruit."},
+            {"HAITI","Avocado, Guava, Coconut, and Mango."},
+            {"JAMAICA","Mango, Ackee, Jackfruit, and Plums."},
+            {"ST. KITTS AND NEVIS","Soursop, Breadfruit, Mango, and Bananas."},
+            {"ST. LUCIA","Coconut, Apples, Guava, and Papaya."},
+            {"ST. VINCENT AND GRENADINES","Bananas, Soursop, Dragon Fruit, and Pineapples."},
+            {"TRINIDAD AND TOBAGO","Papaya, Coconut, Ackee, and Breadfruit."},
         };
 
         //first, let's check if the state given is actually in the fruits<> map
          //if it is, return the mapped value for the appropriate key
           //otherwise, output that there is not support for that region yet.
-        if (fruits.count(state) == 1) {
-            return fruits[state];
+        if (fruits.count(region) == 1) {
+            return fruits[region];
         }
         else
         {
@@ -123,9 +160,9 @@ string findFruit(string country)
     else if (country == "SOUTH AMERICA") //if not the USA - then see if South America
     {
         cout << "South America! Choose a Country!\n";
-        getline(cin, state);
+        getline(cin, region);
         //convert user input wto all upper case to negate case sensitivity
-        transform(state.begin(), state.end(), state.begin(), ::toupper);
+        transform(region.begin(), region.end(), region.begin(), ::toupper);
 
         map<string, string> fruits = {
             {"COLOMBIA", "Granadilla, Pitaya, Zapote, and Lulo."},
@@ -142,8 +179,8 @@ string findFruit(string country)
             {"URUGUAY", "Guabiyu, Oranges, Blueberries, and Apples."},
         };
 
-        if (fruits.count(state) == 1) {
-            return fruits[state];
+        if (fruits.count(region) == 1) {
+            return fruits[region];
         }
         else
         {
