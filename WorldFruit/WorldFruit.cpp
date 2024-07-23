@@ -31,10 +31,6 @@ int main()
     //convert user input to all upper case to negate case sensitivity
      //transform is included with <algorithm>
     transform(country.begin(), country.end(), country.begin(),::toupper);
-    //for (int i = 0; i < country.size(); i++)
-    //{
-    //    country.at(i) = toupper(country.at(i));
-    //}
 
     //the functionality for finding a fruit lives in this method
      //somewhere along the line, I could split the logic by having methods for specific regions, but i'm sure that'd
