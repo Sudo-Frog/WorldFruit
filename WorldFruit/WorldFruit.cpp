@@ -134,7 +134,7 @@ string findFruit(string country)
         map<string, string> fruits = {
             {"COLOMBIA", "Granadilla, Pitaya, Zapote, and Lulo."},
             {"VENEZUELA", "Passion Fruit, Mango, Guava, and and Bananas."},
-            {"BRAZIL", "Açaí, Guarana, Jabuticaba, and Papaya."},
+            {"BRAZIL", "Acai, Guarana, Jabuticaba, and Papaya."},
             {"ECUADOR", "Soursop, Plantain, Pepino, and Naranjilla."},
             {"PERU", "Camu Camu, Chirimoya, Passionfruit, and Cocona."},
             {"BOLIVIA", "Coconut, Banana, Kiwi, and Pineapples."},
