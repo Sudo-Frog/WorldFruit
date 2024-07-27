@@ -2,17 +2,20 @@
 // The main() queries the user for a specific country, then calls the findFruit()
 //  method to find the right output based on the correct location.
 //  
+//  The data for each location key and fruit mapped data are stored in map<> containers, separated by continent, which are located
+//   within the fruitMap.h file. 
 // 
 // - Gabriel Webbe
 // - 06/29/2024
 // 
-// -Latest Update: 07/04/24
+// -Latest Update: 07/27/24
 //
 
 #include <iostream>
 #include <string>
 #include <map>
 #include <algorithm>
+#include "fruitMap.h"
 
 using namespace std;
 
@@ -31,10 +34,6 @@ int main()
     //convert user input to all upper case to negate case sensitivity
      //transform is included with <algorithm>
     transform(country.begin(), country.end(), country.begin(),::toupper);
-    //for (int i = 0; i < country.size(); i++)
-    //{
-    //    country.at(i) = toupper(country.at(i));
-    //}
 
     //the functionality for finding a fruit lives in this method
      //somewhere along the line, I could split the logic by having methods for specific regions, but i'm sure that'd
@@ -46,116 +45,43 @@ int main()
 //This method contains the functionality to answer the user when given a specific state in the United States
 string findFruit(string country)
 {
-    string state;
+    string region;
 
     //if statement to ensure the given country is one supported
-    if (country == "USA" || country == "AMERICA")
+    if (country == "NORTH AMERICA")
     {
-        //now, time to ask for a specific state in the USA
-        cout << "United States! Choose a State!\n";
-        getline(cin, state);
-        //convert user input wto all upper case to negate case sensitivity
-        transform(state.begin(), state.end(), state.begin(), ::toupper);
-
-        //Using a lookup table, a map, to store the values that correspong to specific locations
-         //much smaller and easier to read than nested if-else statements
-        map<string, string> fruits = {
-            //maybe I should put these in alphabetical order...
-            {"PENNSYLVANIA", "Pawpaw, American Persimmon, Wild Plum, and Red Mulberry."},
-            {"NEW YORK", "Apples, Raspberries, Blackberries, and Strawberries."},
-            {"CONNECTICUT", "Apples, Peaches, and Pears."},
-            {"VERMONT", "Apples, Blueberries, Apricot, and Pears."},
-            {"NEW HAMPSHIRE", "Apples, Blueberries, Apricot, and Pears."},
-            {"MASSACHUSETTS", "Cranberries, Blueberries, and Grapes."},
-            {"RHODE ISLAND", "Greening Apples."},
-            {"MAINE", "Blueberries, Plums, and Chokeberries."},
-            {"MARYLAND", "Apples, Cherries, and Grapes."},
-            {"DELAWARE", "Strawberries and Peaches."},
-            {"NEW JERSEY", "Tomatoes, Cucumbers, and Olives."},
-            {"VIRGINIA", "Tomatoes, Grapes, Cucumbers, and Apples."},
-            {"NORTH CAROLINA", "Apples, Peaches, and Pecans."},
-            {"SOUTH CAROLINA", "Apples, Peaches, Plums."},
-            {"GEORGIA", "Apples, Watermelon, Pecans, and Peaches."},
-            {"FLORIDA", "Avocado, Mango, Fig, and Citrus."},
-            {"ALABAMA","Pecans, Blackberries, Peaches, and Muscadines."},
-            {"OHIO","Pawpaw, Elderberries, Perimmons, and Black Raspberries."},
-            {"KENTUCKY","Blueberries, Strawberries, Pawpaw, and Kiwi."},
-            {"WEST VIRGINIA","Golden Apples, Peaches, Blueberries, and Watermelon."},
-            {"TENNESSEE","Tomatoes, Bell Peppers, Cantaloupe, and Cherries."},
-            {"INDIANA","Pears, Plums, Apples, and Black Cherries."},
-            {"MICHIGAN","Cherries, Beans, Cucumber, and Peaches."},
-            {"ILLINOIS","Goldrush Apple, Strawberries, Plums, and Nuts."},
-            {"WISCONSIN","Cranberries, Cherries, Bush Fruits, and Bitter Melon."},
-            {"MINNESOTA","Honeycrisp Apples, Blueberries, Watermelons, and Grapes."},
-            {"IOWA","Hawkeye Apples, Pawpaw, Cherries, and Corn."},
-            {"MISSOURI","Gooseberries, Currants, Apricots, and Nectarines."},
-            {"ARKANSAS","Watermelon, Pears, Figs, and Black Apples."},
-            {"MISSISSIPPI","Oranges, Figs, Gala Apples, and Plums."},
-            {"LOUISIANA","Strawberries, Persimmons, Blackberries, and Tomatoes."},
-            {"TEXAS","Grapefruit, Peppers, Cucumbers, and Mayhaw."},
-            {"OKLAHOMA","Apples, Peaches, Peaches, and Elderberries."},
-            {"KANSAS","Plums, Persimmons, Grapes, and Mulberries."},
-            {"NEBRASKA","Pears, Plums, Grapes, and Cherries."},
-            {"SOUTH DAKOTA","Cherries, Apples, Plums, Cantaloupes."},
-            {"NORTH DAKOTA","Apricots, Pears, Currants, and Apples."},
-            {"NEW MEXICO","Blackberries, Cherries, Peaches, and Apricots."},
-            {"COLORADO","Plums, Strawberries, Cherries, and Apricots."},
-            {"WYOMING","Chokecherries, Plums, Peaches, and Grapes."},
-            {"MONTANA","Apricots, Plums, Pears, and Plums."},
-            {"IDAHO","Pears, Huckleberries, Nectarines, and Grapes."},
-            {"UTAH","Plums, Pears, Peaches, and Apricots."},
-            {"ARIZONA","Melons, Lemons, Oranges, and Tomatoes."},
-            {"CALIFORNIA","Grapes, Berries, Avocado, and Figs."},
-            {"OREGON","Blueberries, Grapes, Pears, and Cherries."},
-            {"WASHINGTON","Grapes, Apricots, Marionberries, and Blackberries."},
-            {"NEVADA","Apricots, Plums, Pears, and Apples."},
-            {"HAWAII","Mango, Coconuts, Rambutans, Lychee, and Guava."},
-            {"ALASKA","Salmonberry, Currants, Lingonberries, and Strawberries."},
-        };
+         //now, time to ask for a specific state in the USA
+        cout << "North America! Choose a State, Province, Territory, or Country!\n";
+        getline(cin, region);
+         //convert user input wto all upper case to negate case sensitivity
+        transform(region.begin(), region.end(), region.begin(), ::toupper);
 
         //first, let's check if the state given is actually in the fruits<> map
          //if it is, return the mapped value for the appropriate key
-          //otherwise, output that there is not support for that region yet.
-        if (fruits.count(state) == 1) {
-            return fruits[state];
+        if (fruitsNA.count(region) == 1) {
+            return fruitsNA.at(region);
         }
         else
-        {
-            return "Oh no! We don't have support for there yet.\n";
+        {   //location not supported
+            return "Oh no! We don't have support for " + region + ".\n";
         }
     }
     else if (country == "SOUTH AMERICA") //if not the USA - then see if South America
     {
         cout << "South America! Choose a Country!\n";
-        getline(cin, state);
-        //convert user input wto all upper case to negate case sensitivity
-        transform(state.begin(), state.end(), state.begin(), ::toupper);
+        getline(cin, region);
+        transform(region.begin(), region.end(), region.begin(), ::toupper);
 
-        map<string, string> fruits = {
-            {"COLOMBIA", "Granadilla, Pitaya, Zapote, and Lulo."},
-            {"VENEZUELA", "Passion Fruit, Mango, Guava, and and Bananas."},
-            {"BRAZIL", "Acai, Guarana, Jabuticaba, and Papaya."},
-            {"ECUADOR", "Soursop, Plantain, Pepino, and Naranjilla."},
-            {"PERU", "Camu Camu, Chirimoya, Passionfruit, and Cocona."},
-            {"BOLIVIA", "Coconut, Banana, Kiwi, and Pineapples."},
-            {"CHILE", "Grapes, Papaya, Apples, and Lucama."},
-            {"GUYANA", "Pitanga, Spice Mango, Golden Apple, and Passion Fruit."},
-            {"SURINAME", "Milk Fruit, Surinam Cherry, Coconut, and Cherries."},
-            {"FRENCH GUIANA", "Lemon, Orange, Chilli Peppers, and Apricots."},
-            {"ARGENTINA", "Tangerines, Plums, Oranges, and Apples."},
-            {"URUGUAY", "Guabiyu, Oranges, Blueberries, and Apples."},
-        };
-
-        if (fruits.count(state) == 1) {
-            return fruits[state];
+        if (fruitsSA.count(region) == 1) {
+            return fruitsSA.at(region);
         }
         else
         {
-            return "Oh no! We don't have support for there yet.\n";
+            return "Oh no! We don't have support for" + region + ".\n";
         }
     }
     else
     {
-        return "Oh no! We don't have support for that country, yet!\n";
+        return "Oh no! We don't have support for" + country + "yet!\n";
     }
 }
