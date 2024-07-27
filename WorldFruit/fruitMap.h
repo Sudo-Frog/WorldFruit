@@ -1,9 +1,11 @@
 /**
-  Beginning of the fruitMap.h file
-   This is a header file designed to store the unchanging, map<> used by
-    WorldFruit.cpp for both ease of access for future change, demonstrate understanding of 
+fruitMap.h file
+   This is a header file designed to store the map<> containers used by
+    WorldFruit.cpp for both ease of access, modifiability, to demonstrate understanding of 
     header files, and to simply keep WorldFruit.cpp clean of ugly walls of strings.
 
+    This file uses map<> containers to store the values of locations and their fruits, following this example: 
+      map<key value: country or state, mapped value: fruits>
 
 */
 
@@ -12,9 +14,8 @@
 
 using namespace std;
 
-//Using a lookup table, a map, to store the values that correspong to specific locations
- //much smaller and easier to read than nested if-else statements
-map<string, string> fruits = {
+ //North America
+map<string, string> fruitsNA = {
     //Canadian Provinces/Territories
    {"ALBERTA","Gooseberries, Blueberries, Saskatoons, and Apricots."},
    {"BRITISH COLOMBIA","Apples, Plums, Peaches, and Grapes."},
@@ -103,4 +104,20 @@ map<string, string> fruits = {
 {"ST. LUCIA","Coconut, Apples, Guava, and Papaya."},
 {"ST. VINCENT AND GRENADINES","Bananas, Soursop, Dragon Fruit, and Pineapples."},
 {"TRINIDAD AND TOBAGO","Papaya, Coconut, Ackee, and Breadfruit."},
+};
+
+//South America
+map<string, string> fruitsSA = {
+    {"COLOMBIA", "Granadilla, Pitaya, Zapote, and Lulo."},
+    {"VENEZUELA", "Passion Fruit, Mango, Guava, and and Bananas."},
+    {"BRAZIL", "Acai, Guarana, Jabuticaba, and Papaya."},
+    {"ECUADOR", "Soursop, Plantain, Pepino, and Naranjilla."},
+    {"PERU", "Camu Camu, Chirimoya, Passionfruit, and Cocona."},
+    {"BOLIVIA", "Coconut, Banana, Kiwi, and Pineapples."},
+    {"CHILE", "Grapes, Papaya, Apples, and Lucama."},
+    {"GUYANA", "Pitanga, Spice Mango, Golden Apple, and Passion Fruit."},
+    {"SURINAME", "Milk Fruit, Surinam Cherry, Coconut, and Cherries."},
+    {"FRENCH GUIANA", "Lemon, Orange, Chilli Peppers, and Apricots."},
+    {"ARGENTINA", "Tangerines, Plums, Oranges, and Apples."},
+    {"URUGUAY", "Guabiyu, Oranges, Blueberries, and Apples."},
 };
