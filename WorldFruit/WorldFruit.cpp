@@ -77,11 +77,25 @@ string findFruit(string country)
         }
         else
         {
-            return "Oh no! We don't have support for" + region + ".\n";
+            return "Oh no! We don't have support for " + region + ".\n";
+        }
+    }
+    else if (country == "AFRICA")
+    {
+        cout << "Africa! Choose a Country!\n";
+        getline(cin, region);
+        transform(region.begin(), region.end(), region.begin(), ::toupper);
+
+        if (fruitsAF.count(region) == 1) {
+            return fruitsAF.at(region);
+        }
+        else
+        {
+            return "Oh no! We don't have support for " + region + ".\n";
         }
     }
     else
     {
-        return "Oh no! We don't have support for" + country + "yet!\n";
+        return "Oh no! We don't have support for " + country + "yet!\n";
     }
 }
