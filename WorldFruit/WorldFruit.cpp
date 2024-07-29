@@ -100,6 +100,11 @@ string findFruit(string country)
             return "Oh no! We don't have support for " + region + ".\n";
         }
     }
+     //Antarctica -- does not have a map<> in fruitMap.h
+    else if (country == "ANTARCTICA")
+    {
+        return "Antarctica! This continent has no natural fruit production!\n";
+    }
     else
     {
         return "Oh no! We don't have support for " + country + "yet!\n";
