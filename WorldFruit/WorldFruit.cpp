@@ -100,6 +100,22 @@ string findFruit(string country)
             return "Oh no! We don't have support for " + region + ".\n";
         }
     }
+     //Australian States and Territories
+    else if (country == "AUSTRALIA")
+    {
+        cout << "Australia! Choose a State or Territory!\n";
+        getline(cin, region);
+        transform(region.begin(), region.end(), region.begin(), ::toupper);
+
+        if (fruitsAU.count(region) == 1) {
+            return fruitsAU.at(region);
+        }
+        else
+        {
+            return "Oh no! We don't have support for " + region + ".\n";
+        }
+
+    }
      //Antarctica -- does not have a map<> in fruitMap.h
     else if (country == "ANTARCTICA")
     {
