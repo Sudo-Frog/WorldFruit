@@ -42,12 +42,16 @@ int main()
 }
 
 
-//This method contains the functionality to answer the user when given a specific state in the United States
+/* findFruit(string) function.Returns a string
+*   -This function takes the input, a string, and compares it to strings that
+*     are the seven continents using if-else() statements. 
+*   -Each statement utilizes a separate map<> container from fruitMap.h
+*/
 string findFruit(string country)
 {
     string region;
 
-    //if statement to ensure the given country is one supported
+     //North American States, Provinces, Territories, and Countries
     if (country == "NORTH AMERICA")
     {
          //now, time to ask for a specific state in the USA
@@ -66,6 +70,7 @@ string findFruit(string country)
             return "Oh no! We don't have support for " + region + ".\n";
         }
     }
+     //South American countries and islands
     else if (country == "SOUTH AMERICA") //if not the USA - then see if South America
     {
         cout << "South America! Choose a Country!\n";
@@ -80,6 +85,7 @@ string findFruit(string country)
             return "Oh no! We don't have support for " + region + ".\n";
         }
     }
+     //African countries
     else if (country == "AFRICA")
     {
         cout << "Africa! Choose a Country!\n";
