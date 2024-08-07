@@ -25,20 +25,20 @@ string findFruit(string);
 
 int main()
 {
-    string country;
+    string continent;
     string state;
 
     //ask the user for a country name and store in a String
     cout << "Hello! Choose a country:\n";
-    getline(cin, country);
+    getline(cin, continent);
     //convert user input to all upper case to negate case sensitivity
      //transform is included with <algorithm>
-    transform(country.begin(), country.end(), country.begin(),::toupper);
+    transform(continent.begin(), continent.end(), continent.begin(),::toupper);
 
     //the functionality for finding a fruit lives in this method
      //somewhere along the line, I could split the logic by having methods for specific regions, but i'm sure that'd
       //end up cantankerous to later modification
-    cout << findFruit(country);
+    cout << findFruit(continent);
 }
 
 
@@ -47,12 +47,12 @@ int main()
 *     are the seven continents using if-else() statements. 
 *   -Each statement utilizes a separate map<> container from fruitMap.h
 */
-string findFruit(string country)
+string findFruit(string continent)
 {
     string region;
 
      //North American States, Provinces, Territories, and Countries
-    if (country == "NORTH AMERICA")
+    if (continent == "NORTH AMERICA")
     {
          //now, time to ask for a specific state in the USA
         cout << "North America! Choose a State, Province, Territory, or Country!\n";
@@ -71,7 +71,7 @@ string findFruit(string country)
         }
     }
      //South American countries and islands
-    else if (country == "SOUTH AMERICA") //if not the USA - then see if South America
+    else if (continent == "SOUTH AMERICA") //if not the USA - then see if South America
     {
         cout << "South America! Choose a Country!\n";
         getline(cin, region);
@@ -86,7 +86,7 @@ string findFruit(string country)
         }
     }
      //African countries
-    else if (country == "AFRICA")
+    else if (continent == "AFRICA")
     {
         cout << "Africa! Choose a Country!\n";
         getline(cin, region);
@@ -101,7 +101,7 @@ string findFruit(string country)
         }
     }
      //Australian States and Territories
-    else if (country == "AUSTRALIA")
+    else if (continent == "AUSTRALIA")
     {
         cout << "Australia! Choose a State or Territory!\n";
         getline(cin, region);
@@ -117,7 +117,7 @@ string findFruit(string country)
 
     }
     //Asian Countries and Territories/Dependencies
-    else if (country == "ASIA")
+    else if (continent == "ASIA")
     {
         cout << "Asia! Choose a Country or Territory/Dependency!\n";
         getline(cin, region);
@@ -133,12 +133,12 @@ string findFruit(string country)
 
     }
      //Antarctica -- does not have a map<> in fruitMap.h
-    else if (country == "ANTARCTICA")
+    else if (continent == "ANTARCTICA")
     {
         return "Antarctica! This continent has no natural fruit production!\n";
     }
     else
     {
-        return "Oh no! We don't have support for " + country + "yet!\n";
+        return "Oh no! We don't have support for " + continent + "yet!\n";
     }
 }
