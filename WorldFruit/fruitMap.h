@@ -179,3 +179,23 @@ map<string, string> fruitsAF = {
     {"ZAMBIA","Apples, Bananas, Pears, and Plums."},
     {"ZIMBBABWE","Grapefruit, Mandarins, Passionfruit, and Coconuts."},
 };
+
+//Australia
+map<string, string> fruitsAU = {
+    {"ASHMORE AND CARTIER ISLANDS", "Wild Fruits"},
+    {"AUSTRALIAN CAPITAL TERRITORY", "Lemons, Persimmons, Privets, and Peaches."},
+    {"AUSTRALIAN ANTARCTIC TERRITORY", "Nothing!"},
+    {"COCOS ISLANDS", "Coconuts, Apples, Avocados, and Pittieri Fruits."},
+    {"CORAL SEA ISLANDS", "Bananas, Avocados, Mangoes, and Pineapples."},
+    {"CHRISTMAS ISLAND", "Bananas, Mangoes, Guava, and Limes."},
+    {"HEARD AND MCDONALD ISLANDS", "Wild Fruits."},
+    {"JERVIS BAY TERRITORY", "Bush Berries."},
+    {"NEW SOUTH WALES", "Grapes, Peaches, Plums, and Apples."},
+    {"NORFOLK ISLAND", "Guavas, Watermelons, Loquats, and Strawberries."},
+    {"NORTHERN TERRITORY", "Lemons, Limes, Pummelo, and Dragon Fruits."},
+    {"SOUTH AUSTRALIA", "Persimmons, Avocados, Cherries, and Apricots."},
+    {"TASMANIA", "Apples, Pears, Peaches, and Bush Berries."},
+    {"QUEENSLAND", "Bananas, Mangoes, Durians, and Jackfruits."},
+    {"VICTORIA", "Peaches, Bush Berries, Apples, and Pears."},
+    {"WESTERN AUSTRALIA", "Avocadoes, Nectarines, Kiwis, and Grapes."},
+};
