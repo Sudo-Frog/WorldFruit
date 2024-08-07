@@ -116,6 +116,22 @@ string findFruit(string country)
         }
 
     }
+    //Asian Countries and Territories/Dependencies
+    else if (country == "ASIA")
+    {
+        cout << "Asia! Choose a Country or Territory/Dependency!\n";
+        getline(cin, region);
+        transform(region.begin(), region.end(), region.begin(), ::toupper);
+
+        if (fruitsAS.count(region) == 1) {
+            return fruitsAS.at(region);
+        }
+        else
+        {
+            return "Oh no! We don't have support for " + region + ".\n";
+        }
+
+    }
      //Antarctica -- does not have a map<> in fruitMap.h
     else if (country == "ANTARCTICA")
     {
