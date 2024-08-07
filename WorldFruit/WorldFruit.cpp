@@ -8,7 +8,7 @@
 // - Gabriel Webbe
 // - 06/29/2024
 // 
-// -Latest Update: 07/29/24
+// -Latest Update: 08/07/24
 //
 
 #include <iostream>
@@ -25,20 +25,18 @@ string findFruit(string);
 
 int main()
 {
-    string country;
+    string continent;
     string state;
 
     //ask the user for a country name and store in a String
-    cout << "Hello! Choose a country:\n";
-    getline(cin, country);
+    cout << "Hello! Choose a continent:\n";
+    getline(cin, continent);
     //convert user input to all upper case to negate case sensitivity
      //transform is included with <algorithm>
-    transform(country.begin(), country.end(), country.begin(),::toupper);
+    transform(continent.begin(), continent.end(), continent.begin(),::toupper);
 
-    //the functionality for finding a fruit lives in this method
-     //somewhere along the line, I could split the logic by having methods for specific regions, but i'm sure that'd
-      //end up cantankerous to later modification
-    cout << findFruit(country);
+    //function call to findFruit() and outputting the return string
+    cout << findFruit(continent);
 }
 
 
@@ -47,12 +45,12 @@ int main()
 *     are the seven continents using if-else() statements. 
 *   -Each statement utilizes a separate map<> container from fruitMap.h
 */
-string findFruit(string country)
+string findFruit(string continent)
 {
     string region;
 
-     //North American States, Provinces, Territories, and Countries
-    if (country == "NORTH AMERICA")
+      //North American States, Provinces, Territories, and Countries
+    if (continent == "NORTH AMERICA")
     {
          //now, time to ask for a specific state in the USA
         cout << "North America! Choose a State, Province, Territory, or Country!\n";
@@ -70,8 +68,8 @@ string findFruit(string country)
             return "Oh no! We don't have support for " + region + ".\n";
         }
     }
-     //South American countries and islands
-    else if (country == "SOUTH AMERICA") //if not the USA - then see if South America
+      //South American countries and islands
+    else if (continent == "SOUTH AMERICA") //if not the USA - then see if South America
     {
         cout << "South America! Choose a Country!\n";
         getline(cin, region);
@@ -85,8 +83,8 @@ string findFruit(string country)
             return "Oh no! We don't have support for " + region + ".\n";
         }
     }
-     //African countries
-    else if (country == "AFRICA")
+      //African countries
+    else if (continent == "AFRICA")
     {
         cout << "Africa! Choose a Country!\n";
         getline(cin, region);
@@ -100,8 +98,8 @@ string findFruit(string country)
             return "Oh no! We don't have support for " + region + ".\n";
         }
     }
-     //Australian States and Territories
-    else if (country == "AUSTRALIA")
+      //Australian States and Territories
+    else if (continent == "AUSTRALIA")
     {
         cout << "Australia! Choose a State or Territory!\n";
         getline(cin, region);
@@ -116,13 +114,29 @@ string findFruit(string country)
         }
 
     }
-     //Antarctica -- does not have a map<> in fruitMap.h
-    else if (country == "ANTARCTICA")
+      //Asian Countries and Territories/Dependencies
+    else if (continent == "ASIA")
+    {
+        cout << "Asia! Choose a Country or Territory/Dependency!\n";
+        getline(cin, region);
+        transform(region.begin(), region.end(), region.begin(), ::toupper);
+
+        if (fruitsAS.count(region) == 1) {
+            return fruitsAS.at(region);
+        }
+        else
+        {
+            return "Oh no! We don't have support for " + region + ".\n";
+        }
+
+    }
+      //Antarctica -- does not have a map<> in fruitMap.h
+    else if (continent == "ANTARCTICA")
     {
         return "Antarctica! This continent has no natural fruit production!\n";
     }
     else
     {
-        return "Oh no! We don't have support for " + country + "yet!\n";
+        return "Oh no! We don't have support for " + continent + "yet!\n";
     }
 }
